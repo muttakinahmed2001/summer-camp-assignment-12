@@ -1,13 +1,25 @@
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { IconContext } from "react-icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 const Login = () => {
+  const [error,setError] = useState();
   const [show, setShow] = useState();
+  const {signIn}= useContext(AuthContext); 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => {
-    console.log(data)
+    const email = data.email;
+    const password = data.password;
+     signIn(email,password)
+     .then(result => {
+      const user = result.user;
+      console.log(user);
+     })
+     .catch(error =>
+      setError(error.message) )
   };
   console.log(errors);
   return (
@@ -49,10 +61,9 @@ const Login = () => {
                 } </p>
               </div>
               {errors.password && <span>Password is required</span>}
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">Already have an account? Sign Up</a>
-              </label>
+               <p>Already have an account? <Link to='/signUp'>Sign Up </Link> </p>
             </div>
+            <h1 className="text-xl text-red-600">{error}</h1>
             <div className="form-control mt-6">
 
               <input className="btn btn-success" type="submit" value="Login" />
