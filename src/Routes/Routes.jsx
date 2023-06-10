@@ -5,6 +5,7 @@ import {
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Error from "../pages/Error/Error";
+import Login from "../pages/Login/Login";
 
   export const router = createBrowserRouter([
     {
@@ -14,7 +15,12 @@ import Error from "../pages/Error/Error";
         {
             path: '/',
             element: <Home></Home>
+        },
+        {
+          path:'login',
+          element: <Login></Login>
         }
+
       ]
     },
     {
