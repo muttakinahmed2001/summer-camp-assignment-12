@@ -4,10 +4,11 @@ import { IconContext } from "react-icons";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 const Login = () => {
   const {signIn,googleSignIn}= useContext(AuthContext);
-  
+  const navigate = useNavigate();
   const [show, setShow] = useState();
    
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -27,7 +28,21 @@ const Login = () => {
     googleSignIn()
     .then(result =>
      { const user = result.user;
-    console.log(user)}
+    console.log(user)
+    const saveUser = { name: user.displayName, email: user.email }
+        fetch('https://assignment-12-server-one-sepia.vercel.app/users', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(saveUser)
+            })
+              .then(res => res.json())
+              .then(()=> {
+               navigate('/')
+              })
+  }
+    
      )
   }
    

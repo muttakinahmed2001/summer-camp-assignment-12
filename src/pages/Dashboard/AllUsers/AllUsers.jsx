@@ -6,12 +6,12 @@ import Swal from "sweetalert2";
 const AllUsers = () => {
   const { data: users = [], refetch } = useQuery(['users'], async () => {
 
-    const res = await fetch('http://localhost:5000/users')
+    const res = await fetch('https://assignment-12-server-one-sepia.vercel.app/users')
     return res.json();
   })
 
   const handleMakeAdmin = id => {
-    fetch(`http://localhost:5000/users/admin/${id}`,{
+    fetch(`https://assignment-12-server-one-sepia.vercel.app/users/admin/${id}`,{
       method: 'PATCH'
   })
   .then(res => res.json())
@@ -31,7 +31,7 @@ const AllUsers = () => {
   )
   }
   const handleMakeInstructor = id => {
-    fetch(`http://localhost:5000/users/instructor/${id}`,{
+    fetch(`https://assignment-12-server-one-sepia.vercel.app/users/instructor/${id}`,{
       method: 'PATCH'
   })
   .then(res => res.json())
