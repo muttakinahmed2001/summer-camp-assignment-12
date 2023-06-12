@@ -1,15 +1,16 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { IconContext } from "react-icons";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
   const [error, setError] = useState();
   const { googleSignIn } = useContext(AuthContext);
-
+const navigate = useNavigate();
   const [show, setShow] = useState();
   const { createUser, updateUserProfile } = useContext(AuthContext)
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -32,8 +33,30 @@ const SignUp = () => {
         console.log(user)
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
-            console.log('user profile info updated')
-            reset();
+            const saveUser = { name: data.name, email: data.email }
+            fetch('http://localhost:5000/users', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(saveUser)
+            })
+              .then(res => res.json())
+              .then(data => {
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User created successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  navigate('/')
+                }
+              })
+
+
           })
           .catch(error => console.log(error))
 
@@ -47,15 +70,28 @@ const SignUp = () => {
       .then(result => {
         const user = result.user;
         console.log(user)
+        const saveUser = { name: user.displayName, email: user.email }
+        fetch('http://localhost:5000/users', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(saveUser)
+            })
+              .then(res => res.json())
+              .then(()=> {
+               navigate('/')
+              })
+
       }
       )
   }
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-base-200 ">
       <div className="hero-content flex-col lg:flex-col">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold mb-4">Please Sign Up</h1>
+          <h1 className="text-5xl font-bold mb-4 mt-100px">Please Sign Up</h1>
 
 
         </div>
@@ -92,7 +128,7 @@ const SignUp = () => {
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <div className="flex items-center"> <input type={show ? 'text' : 'password'}  name="password" placeholder={"password"} {...register("password", {
+              <div className="flex items-center"> <input type={show ? 'text' : 'password'} name="password" placeholder={"password"} {...register("password", {
                 required: true, minLength: 6,
                 pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
               })} className="input input-bordered" />

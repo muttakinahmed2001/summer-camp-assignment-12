@@ -4,6 +4,8 @@ import Footer from "../../Shared/Footer/Footer";
 import {  FaUsers } from "react-icons/fa";
  import classIcon from '../../../assets/class.png'
 const Dashboard = () => {
+  // TODO: load data from the server to ave dynamic isAdmin based on Data
+  const isAdmin = true;
     return (
        <>
        <Navbar></Navbar>
@@ -21,9 +23,13 @@ const Dashboard = () => {
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content mt-[120px] ">
       {/* Sidebar content here */}
-      <li><Link> <img style={{width:'30px'}} src={classIcon} alt="" />Manage Classes</Link> </li>
-      <li>  <Link> <FaUsers style={{width:'30px'}}></FaUsers>Manage Users</Link></li>
-     
+      {isAdmin && <><li><Link > <img style={{width:'30px'}} src={classIcon} alt="" />Manage Classes</Link> </li>
+      <li>  <Link to='/dashboard/users'> <FaUsers style={{width:'30px'}}></FaUsers>Manage Users</Link></li></>
+     }
+     {
+      !isAdmin && <><li><Link> <img style={{width:'30px'}} src={classIcon} alt="" />My Selected Classes</Link> </li>
+      <li>  <Link> <FaUsers style={{width:'30px'}}></FaUsers>My Enrolled classes </Link></li></>
+     }
     </ul>
   
   </div>
