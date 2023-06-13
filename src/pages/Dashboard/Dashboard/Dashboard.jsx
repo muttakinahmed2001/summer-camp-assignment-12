@@ -28,7 +28,7 @@ const Dashboard = () => {
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content mt-[120px] ">
       {/* Sidebar content here */}
       {isAdmin ? <><li><Link > <img style={{width:'30px'}} src={classIcon} alt="" />Manage Classes</Link> </li>
-      <li>  <Link to='/dashboard/users'> <FaUsers style={{width:'30px'}}></FaUsers>Manage Users</Link></li></>: isInstructor ? <><li><Link> <img style={{width:'30px'}} src={classIcon} alt="" />Add a class</Link> </li>
+      <li>  <Link to='/dashboard/users'> <FaUsers style={{width:'30px'}}></FaUsers>Manage Users</Link></li></>: isInstructor ? <><li><Link to='addAClass'> <img style={{width:'30px'}} src={classIcon} alt="" />Add a class</Link> </li>
       <li>  <Link> <FaUsers style={{width:'30px'}}></FaUsers>My classes </Link></li></> : <><li><Link> <img style={{width:'30px'}} src={classIcon} alt="" />My Selected Classes</Link> </li>
       <li>  <Link> <FaUsers style={{width:'30px'}}></FaUsers>My Enrolled classes </Link></li></>
      }
