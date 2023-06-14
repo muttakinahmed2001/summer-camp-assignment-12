@@ -1,8 +1,10 @@
- 
+ import { Link } from 'react-router-dom';
+import '../../assets/error.jpg'
 const Error = () => {
     return (
         <div>
-            <h1>404</h1>
+           <img src={Error} alt="" />
+           <Link to='/'><button className="btn">Home</button></Link>
         </div>
     );
 };

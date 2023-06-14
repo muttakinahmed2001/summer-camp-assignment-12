@@ -16,6 +16,7 @@ import FeedBack from "../pages/Dashboard/AllClasses/FeedBack";
 import MyClasses from "../pages/Dashboard/Dashboard/Instructor/MyClasses";
 import ShowFeedback from "../pages/Dashboard/Dashboard/Instructor/ShowFeedback";
 import Classes from "../pages/Classes/Classes";
+import MySelectedClasses from "../pages/Dashboard/Dashboard/Student/MySelectedClasses";
 
   export const router = createBrowserRouter([
     {
@@ -71,6 +72,9 @@ import Classes from "../pages/Classes/Classes";
           path:'showFeedback/:id',
           element:<ShowFeedback></ShowFeedback>,
           loader:({params}) => fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
+        },{
+          path:'mySelectedClasses',
+          element:<MySelectedClasses></MySelectedClasses>
         }
       ]
     },
