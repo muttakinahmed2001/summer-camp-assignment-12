@@ -24,7 +24,7 @@ const Dashboard = () => {
   </div> 
   <div className="drawer-side ">
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content   ">
+    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
       {/* Sidebar content here */}
       {isAdmin ? <><li><Link to='mangeClasses'> <img style={{width:'30px'}} src={classIcon} alt="" />Manage Classes</Link> </li>
       <li>  <Link to='/dashboard/users'> <FaUsers style={{width:'30px'}}></FaUsers>Manage Users</Link></li></>: isInstructor ? <><li><Link to='addAClass'> <img style={{width:'30px'}} src={classIcon} alt="" />Add a class</Link> </li>
