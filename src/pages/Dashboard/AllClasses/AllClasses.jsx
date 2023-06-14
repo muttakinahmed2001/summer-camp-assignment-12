@@ -79,7 +79,7 @@ const AllClasses = () => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table">
+      <table className="table  mt-100px">
         {/* head */}
         <thead>
           <tr>

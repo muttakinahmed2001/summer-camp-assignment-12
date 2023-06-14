@@ -15,6 +15,7 @@ import AllClasses from "../pages/Dashboard/AllClasses/AllClasses";
 import FeedBack from "../pages/Dashboard/AllClasses/FeedBack";
 import MyClasses from "../pages/Dashboard/Dashboard/Instructor/MyClasses";
 import ShowFeedback from "../pages/Dashboard/Dashboard/Instructor/ShowFeedback";
+import Classes from "../pages/Classes/Classes";
 
   export const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ import ShowFeedback from "../pages/Dashboard/Dashboard/Instructor/ShowFeedback";
         {
             path: '/',
             element: <Home></Home>
+        },
+        {path:'approveClasses',
+        element:<Classes></Classes>
+
         },
         {
           path:'login',

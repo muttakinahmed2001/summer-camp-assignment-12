@@ -72,9 +72,7 @@ const MyClasses = () => {
 
 
                         </td>
-                        <td> <button
-
-                            className="btn btn-success btn-sm my-4"
+                        <td> <button className="btn btn-success btn-sm my-4"
                         >
                             Update
                         </button></td>

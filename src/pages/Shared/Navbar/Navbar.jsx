@@ -19,13 +19,14 @@ const Navbar = () => {
        {user? <img className="rounded-full border w-[40px] mr-4   lg:invisible md:invisible ml-3" src={user.photoURL} alt="" /> : ''}
         <li><Link to='/'>Home</Link></li>
         <li><Link>Instructors</Link></li>
-        <li><Link>Classes</Link></li>
+        <li><Link to='/approveClasses'>Classes</Link></li>
         {user ? <li><Link to='dashboard'>Dashboard</Link></li> : ''}
 
     </>
     
     return (
-        <div className="navbar bg-black bg-opacity-20 fixed  z-10">
+   <div>
+         <div className="navbar bg-black bg-opacity-20    z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,6 +52,7 @@ const Navbar = () => {
                 }
             </div>
         </div>
+   </div>
     );
 };
 
