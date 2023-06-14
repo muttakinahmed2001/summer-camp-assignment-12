@@ -12,6 +12,9 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import PrivateRoute from "./PrivateRoute";
 import AddAClass from "../pages/Dashboard/Dashboard/Instructor/AddAClass";
 import AllClasses from "../pages/Dashboard/AllClasses/AllClasses";
+import FeedBack from "../pages/Dashboard/AllClasses/FeedBack";
+import MyClasses from "../pages/Dashboard/Dashboard/Instructor/MyClasses";
+import ShowFeedback from "../pages/Dashboard/Dashboard/Instructor/ShowFeedback";
 
   export const router = createBrowserRouter([
     {
@@ -46,8 +49,23 @@ import AllClasses from "../pages/Dashboard/AllClasses/AllClasses";
           element:<AddAClass></AddAClass>
         },
         {
+          path:'myClasses',
+          element:<MyClasses></MyClasses>
+        },
+        {
           path:'mangeClasses',
           element:<AllClasses></AllClasses>
+        },
+        {
+          path:'feedback/:id',
+          element:<FeedBack></FeedBack>,
+          loader:({params})=> fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
+
+        },
+        {
+          path:'showFeedback/:id',
+          element:<ShowFeedback></ShowFeedback>,
+          loader:({params}) => fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
         }
       ]
     },

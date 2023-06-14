@@ -34,7 +34,7 @@ const Login = () => {
      { const user = result.user;
     console.log(user)
     const saveUser = { name: user.displayName, email: user.email }
-        fetch('https://assignment-12-server-one-sepia.vercel.app/users', {
+        fetch('` https://assignment-12-server-one-sepia.vercel.app/users', {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'

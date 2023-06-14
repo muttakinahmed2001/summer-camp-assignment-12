@@ -12,7 +12,7 @@ const useAxiosSecure = () => {
      
 
     const axiosSecure = axios.create({
-        baseURL: 'https://assignment-12-server-one-sepia.vercel.app'
+        baseURL: ' https://assignment-12-server-one-sepia.vercel.app'
     });
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {

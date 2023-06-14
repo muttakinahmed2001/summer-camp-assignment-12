@@ -14,44 +14,44 @@ const AllUsers = () => {
   })
 
   const handleMakeAdmin = id => {
-    fetch(`https://assignment-12-server-one-sepia.vercel.app/users/admin/${id}`,{
+    fetch(` https://assignment-12-server-one-sepia.vercel.app/users/admin/${id}`, {
       method: 'PATCH'
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log(data)
-    if(data.modifiedCount >0){
-      refetch()
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Role changed successfully',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    }
-  }
-  )
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if (data.modifiedCount > 0) {
+          refetch()
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Role changed successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      }
+      )
   }
   const handleMakeInstructor = id => {
-    fetch(`https://assignment-12-server-one-sepia.vercel.app/users/instructor/${id}`,{
+    fetch(` https://assignment-12-server-one-sepia.vercel.app/users/instructor/${id}`, {
       method: 'PATCH'
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log(data)
-    if(data.modifiedCount >0){
-      refetch()
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Role changed successfully',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    }
-  }
-  )
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if (data.modifiedCount > 0) {
+          refetch()
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Role changed successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      }
+      )
   }
 
   return (
@@ -77,9 +77,9 @@ const AllUsers = () => {
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>{user.role === 'admin' ? 'Admin' : user.role ==='instructor' ? 'Instructor' : 'Student' }</td>
-                <td><button onClick={() =>handleMakeAdmin(user._id)} className="btn btn-accent">Make Admin</button></td>
-                <td><button onClick={() =>handleMakeInstructor(user._id)} className="btn btn-info">Make Instructor</button></td>
+                <td>{user.role === 'admin' ? 'Admin' : user.role === 'instructor' ? 'Instructor' : 'Student'}</td>
+                <td><button onClick={() => handleMakeAdmin(user._id)} className="btn btn-accent">Make Admin</button></td>
+                <td><button onClick={() => handleMakeInstructor(user._id)} className="btn btn-info">Make Instructor</button></td>
               </tr>
               )
             }

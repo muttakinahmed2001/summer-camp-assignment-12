@@ -13,7 +13,7 @@ const AddAClass = () => {
     const languageClass = { ClassName: data.className, ClassImage: data.image, instructorName: data.instructorName, instructorEmail: data.instructorEmail, price: data.price, AvailableSeat: data.seats, }
     console.log(data)
     console.log(languageClass)
-    fetch('https://assignment-12-server-one-sepia.vercel.app/classes', {
+    fetch('https://assignment-12-server-one-sepia.vercel.app', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
