@@ -1,14 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 
 
 const MyClasses = () => {
+    const {user}= useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure();
 
-    const { data: languageClasses = [] } = useQuery(['classes'], async () => {
-        const response = await axiosSecure.get('/classes')
+    const { data: languageClasses = [] } = useQuery(['classesByEmail'], async () => {
+        const response = await axiosSecure.get(`/classesByEmail?email=${user.email}`)
         return response.data;
     });
     console.log(languageClasses)

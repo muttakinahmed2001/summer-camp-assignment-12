@@ -6,8 +6,7 @@ import {  FaUsers } from "react-icons/fa";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
 const Dashboard = () => {
-  // TODO: load data from the server to ave dynamic isAdmin based on Data
-  // const isAdmin = true;
+  
   const [isAdmin] = useAdmin();
   const [isInstructor]= useInstructor();
     return (
