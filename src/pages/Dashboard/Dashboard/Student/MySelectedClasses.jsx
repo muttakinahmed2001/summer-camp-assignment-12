@@ -27,7 +27,7 @@ const MySelectedClasses = () => {
         }).then((result) => {
           if (result.isConfirmed) {
     
-            axiosSecure.delete(`/selectedClass/${id}}`)
+            axiosSecure.delete(`/selectedClass/${id}`)
               .then(res => {
                 console.log('deleted res', res.data)
                 if (res.data.deletedCount > 0) {
