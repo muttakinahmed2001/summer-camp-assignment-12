@@ -9,7 +9,7 @@ const Home = () => {
     const language = "english";
 
   return (
-    <div>
+    <div className="mx-auto">
       <Carousal />
       <PopularInstructors />
 

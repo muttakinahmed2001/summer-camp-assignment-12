@@ -38,7 +38,7 @@ const Animation = ({ language }) => {
     }
 
     return (
-        <motion.div
+        <motion.div className="mx-auto"
             key={language}
             initial="initial"
             animate="animate"
