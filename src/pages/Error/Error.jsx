@@ -1,10 +1,12 @@
  import { Link } from 'react-router-dom';
-import '../../assets/error.jpg'
+import error from '../../assets/error.jpg'
 const Error = () => {
     return (
-        <div>
-           <img src={Error} alt="" />
-           <Link to='/'><button className="btn">Home</button></Link>
+        <div className='mx-auto my-8'>
+          <div className='flex flex-col justify-center items-center'>
+          <img src={error} alt="" />
+           <Link to='/'><button className="btn btn-warning mt-5">Home</button></Link>
+          </div>
         </div>
     );
 };
