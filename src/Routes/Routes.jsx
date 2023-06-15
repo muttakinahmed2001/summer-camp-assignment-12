@@ -1,7 +1,7 @@
 import {
-    createBrowserRouter,
-   
-  } from "react-router-dom"
+  createBrowserRouter,
+
+} from "react-router-dom"
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Error from "../pages/Error/Error";
@@ -17,71 +17,85 @@ import MyClasses from "../pages/Dashboard/Dashboard/Instructor/MyClasses";
 import ShowFeedback from "../pages/Dashboard/Dashboard/Instructor/ShowFeedback";
 import Classes from "../pages/Classes/Classes";
 import MySelectedClasses from "../pages/Dashboard/Dashboard/Student/MySelectedClasses";
+import Instructors from "../pages/Instructors/Instructors";
+import Payment from "../pages/Dashboard/Dashboard/Payment/Payment";
 
-  export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-        {path:'approveClasses',
-        element:<Classes></Classes>
 
-        },
-        {
-          path:'login',
-          element: <Login></Login>
-        },
-        {
-          path:'signUp',
-          element:<SignUp></SignUp>
-        } 
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: 'allInstructors',
+        element: <Instructors></Instructors>
+      },
+      {
+        path: 'approveClasses',
+        element: <Classes></Classes>
 
-      ]
-    },
-    {
-      path:'dashboard',
-      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-      children: [
-        {
-          path:'users',
-          element:<AllUsers></AllUsers>
-        },
-        {
-          path:'addAClass',
-          element:<AddAClass></AddAClass>
-        },
-        {
-          path:'myClasses',
-          element:<MyClasses></MyClasses>
-        },
-        {
-          path:'mangeClasses',
-          element:<AllClasses></AllClasses>
-        },
-        {
-          path:'feedback/:id',
-          element:<FeedBack></FeedBack>,
-          loader:({params})=> fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
+      },
+      {
+        path: 'login',
+        element: <Login></Login>
+      },
+      {
+        path: 'signUp',
+        element: <SignUp></SignUp>
+      }
 
-        },
-        {
-          path:'showFeedback/:id',
-          element:<ShowFeedback></ShowFeedback>,
-          loader:({params}) => fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
-        },{
-          path:'mySelectedClasses',
-          element:<MySelectedClasses></MySelectedClasses>
-        }
-      ]
-    },
-    {
-        path:'*',
-        element:<Error></Error>
-    }
-  ]);
+    ]
+  },
+  {
+    path: 'dashboard',
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
 
-  
+      {
+        path: 'users',
+        element: <AllUsers></AllUsers>
+      },
+
+      {
+        path: 'addAClass',
+        element: <AddAClass></AddAClass>
+      },
+      {
+        path: 'myClasses',
+        element: <MyClasses></MyClasses>
+      },
+      {
+        path: 'mangeClasses',
+        element: <AllClasses></AllClasses>
+      },
+      {
+        path: 'feedback/:id',
+        element: <FeedBack></FeedBack>,
+        loader: ({ params }) => fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
+
+      },
+      {
+        path: 'showFeedback/:id',
+        element: <ShowFeedback></ShowFeedback>,
+        loader: ({ params }) => fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
+      }, {
+        path: 'mySelectedClasses',
+        element: <MySelectedClasses></MySelectedClasses>
+      },
+      {
+        path: 'payment/:id',
+        element:<Payment></Payment>,
+        loader:({params}) => fetch(`https://assignment-12-server-one-sepia.vercel.app/selectedClass/${params.id}`)
+       }
+    ]
+  },
+  {
+    path: '*',
+    element: <Error></Error>
+  }
+]);
+

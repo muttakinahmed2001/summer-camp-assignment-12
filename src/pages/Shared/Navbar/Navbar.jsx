@@ -18,7 +18,7 @@ const Navbar = () => {
         {/* TODO: img src should be user profile */}
        {user? <img className="rounded-full border w-[40px] mr-4   lg:invisible md:invisible ml-3" src={user.photoURL} alt="" /> : ''}
         <li><Link to='/'>Home</Link></li>
-        <li><Link>Instructors</Link></li>
+        <li><Link to='/allInstructors'>Instructors</Link></li>
         <li><Link to='/approveClasses'>Classes</Link></li>
         {user ? <li><Link to='dashboard'>Dashboard</Link></li> : ''}
 
@@ -26,10 +26,13 @@ const Navbar = () => {
     
     return (
    <div>
-         <div className="navbar bg-black bg-opacity-20    z-10">
+       <div className="navbar fixed top-0 inset-x-0 bg-[gray]  z-10 lg:static      ">
+  
+ 
+
             <div className="navbar-start">
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                    <label  tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-black bg-opacity-20 rounded-box w-52 text-xl text-white font-semibold">

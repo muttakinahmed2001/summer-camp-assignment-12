@@ -1,10 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useState } from "react";
 
 
 
 const AllUsers = () => {
+   const [adminClicked,setAdminClicked]= useState([]);
+   const [instructorClicked,setInstructorClicked]= useState([]);
   const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(['users'], async () => {
 
@@ -14,6 +17,8 @@ const AllUsers = () => {
   })
 
   const handleMakeAdmin = id => {
+    const newAdminClicked = [...adminClicked, id]
+    setAdminClicked(newAdminClicked)
     fetch(` https://assignment-12-server-one-sepia.vercel.app/users/admin/${id}`, {
       method: 'PATCH'
     })
@@ -34,6 +39,8 @@ const AllUsers = () => {
       )
   }
   const handleMakeInstructor = id => {
+    const newInstructorClicked = [...instructorClicked, id]
+    setInstructorClicked(newInstructorClicked)
     fetch(` https://assignment-12-server-one-sepia.vercel.app/users/instructor/${id}`, {
       method: 'PATCH'
     })
@@ -78,8 +85,8 @@ const AllUsers = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.role === 'admin' ? 'Admin' : user.role === 'instructor' ? 'Instructor' : 'Student'}</td>
-                <td><button onClick={() => handleMakeAdmin(user._id)} className="btn btn-accent">Make Admin</button></td>
-                <td><button onClick={() => handleMakeInstructor(user._id)} className="btn btn-info">Make Instructor</button></td>
+                <td><button disabled={adminClicked.includes(user._id)} onClick={() => handleMakeAdmin(user._id)} className="btn btn-accent">Make Admin</button></td>
+                <td><button disabled={instructorClicked.includes(user._id)}  onClick={() => handleMakeInstructor(user._id)} className="btn btn-info">Make Instructor</button></td>
               </tr>
               )
             }

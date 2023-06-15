@@ -84,7 +84,7 @@ const {data: classesByStatus =[]}= useQuery(['approveClasses'],async () => {
    
     return (
       
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
             
              {classesByStatus.map( languageClass =>
            
@@ -99,11 +99,11 @@ const {data: classesByStatus =[]}= useQuery(['approveClasses'],async () => {
   </figure>
   <div className="card-body items-center text-center">
     <h2 className="card-title">{languageClass.ClassName}</h2>
-    <h2 className="text-xl font-bold">Instructor:{languageClass.instructorName}</h2>
+    <h2 className="text-xl font-bold">Instructor:   {languageClass.instructorName}</h2>
     <p>Available seats: {languageClass.AvailableSeat}</p>
-    <p>Price:{languageClass.price}</p>
+    <p>Price: ${languageClass.price}</p>
     <div className="card-actions">
-         <button disabled={isAdmin || isInstructor ||languageClass.AvailableSeat===0 ? true: false} onClick={()=>handleSelectButton(languageClass)} className="btn btn-primary">Select Button</button>  
+         <button disabled={isAdmin || isInstructor ||languageClass.AvailableSeat===0 ? true: false} onClick={()=>handleSelectButton(languageClass)} className="btn bg-[orange]">Select </button>  
      
     </div>
   </div>

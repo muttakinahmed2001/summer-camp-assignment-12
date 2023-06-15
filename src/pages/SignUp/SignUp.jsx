@@ -33,7 +33,7 @@ const navigate = useNavigate();
         console.log(user)
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
-            const saveUser = { name: data.name, email: data.email }
+            const saveUser = { name: data.name, email: data.email,image: data.photoURL }
             fetch('https://assignment-12-server-one-sepia.vercel.app/users', {
               method: 'POST',
               headers: {
@@ -70,7 +70,7 @@ const navigate = useNavigate();
       .then(result => {
         const user = result.user;
         console.log(user)
-        const saveUser = { name: user.displayName, email: user.email }
+        const saveUser = { name: user.displayName, email: user.email, image: user.photoURL  }
         fetch('https://assignment-12-server-one-sepia.vercel.app/users', {
               method: 'POST',
               headers: {
@@ -120,7 +120,7 @@ const navigate = useNavigate();
                 <span className="label-text">Email</span>
               </label>
               <input type="email" placeholder="email"  {...register("email", { required: true })} className="input input-bordered" />
-              {errors.email && <span>Email is required</span>}
+              {errors.email && <span className='text-red-600'>Email is required</span>}
 
 
             </div>

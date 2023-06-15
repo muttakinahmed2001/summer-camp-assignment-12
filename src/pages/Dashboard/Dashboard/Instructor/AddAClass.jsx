@@ -10,7 +10,7 @@ const AddAClass = () => {
   const {user} =useContext(AuthContext);
 
   const onSubmit = data => {
-    const languageClass = { ClassName: data.className, ClassImage: data.image, instructorName: data.instructorName, instructorEmail: data.instructorEmail, price: data.price, AvailableSeat: data.seats, }
+    const languageClass = { ClassName: data.className, ClassImage: data.image, instructorName: data.instructorName, instructorEmail: data.instructorEmail, price: parseFloat(data.price), AvailableSeat: parseFloat(data.seats) }
     console.log(data)
     console.log(languageClass)
     fetch('https://assignment-12-server-one-sepia.vercel.app/classes', {
