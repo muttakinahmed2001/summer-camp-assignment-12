@@ -1,7 +1,7 @@
 
 # Learn language
 
-A brief description of what this project does and who it's for
+Discover the Joy of Language Learning at our Summer Camp School Website! Immerse yourself in a world of language exploration as you embark on an exciting journey to master English and other languages. Engage in interactive lessons, fun activities, and practice sessions to enhance your language skills. Join our vibrant online community today and unlock the doors to effective language learning!
 
 
 ## Features
