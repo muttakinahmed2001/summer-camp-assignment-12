@@ -12,7 +12,7 @@ const FeedBack = () => {
         const form = event.target;
         const feedback = form.feedback.value;
 
-        fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/feedback/${_id}`,{
+        fetch(`http://localhost:5000/classes/feedback/${_id}`,{
             method: 'PATCH',
             headers: {'content-type': 'application/json'},
              body: JSON.stringify({feedback})

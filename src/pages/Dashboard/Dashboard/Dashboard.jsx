@@ -37,7 +37,7 @@ const Dashboard = () => {
       <li><Link to='addAClass'> <img style={{width:'30px'}} src={classIcon} alt="" />Add a class</Link> </li>
       <li>  <Link to='/dashboard/myClasses'> <FaUsers style={{width:'30px'}}></FaUsers>My classes </Link></li></> : <> <li><h1 className="text-xl font-bold">User Home</h1></li>
       <li><Link to='/dashboard/mySelectedClasses'> <img style={{width:'30px'}} src={classIcon} alt="" />My Selected Classes</Link> </li>
-      <li>  <Link> <FaUsers style={{width:'30px'}}></FaUsers>My Enrolled classes </Link></li></>
+      <li>  <Link to='/dashboard/enrolledClasses'> <FaUsers style={{width:'30px'}}></FaUsers>My Enrolled classes </Link></li></>
      }
       
     </ul>

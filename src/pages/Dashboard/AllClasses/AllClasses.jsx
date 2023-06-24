@@ -25,7 +25,7 @@ const AllClasses = () => {
   const handleMakeApprove = id => {
     const newClicked = [...clicked, id]
     setClicked(newClicked);
-    fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/approve/${id}`, {
+    fetch(`http://localhost:5000/classes/approve/${id}`, {
       method: 'PATCH'
     })
       .then(res => res.json())
@@ -48,7 +48,7 @@ const AllClasses = () => {
   const handleMakeDeny = id => {
     const newClicked = [...clicked, id]
     setClicked(newClicked);
-    fetch(` https://assignment-12-server-one-sepia.vercel.app/classes/deny/${id}`, {
+    fetch(` http://localhost:5000/classes/deny/${id}`, {
       method: 'PATCH'
     })
       .then(res => res.json())

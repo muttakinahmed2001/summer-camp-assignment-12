@@ -12,13 +12,13 @@ const CheckOutForm = ({ languageClass }) => {
   const [cardError, setCardError] = useState('');
   const [clientSecret, setClientSecret] = useState('');
   console.log(languageClass)
-  const { price, AvailableSeat } = languageClass;
-  console.log(price,AvailableSeat)
+  const { price, AvailableSeat,_id} = languageClass;
+  console.log(price,AvailableSeat,_id)
    
-
+const enrolledClasses = { ClassName: languageClass.ClassName, ClassImage: languageClass.ClassImage, instructorName: languageClass.instructorName,email:user.email, instructorEmail: languageClass.instructorEmail, price:(languageClass.price), AvailableSeat:(languageClass.AvailableSeat) }
   useEffect(() => {
 
-    axiosSecure.post('/create-payment-intent', { price, AvailableSeat })
+    axiosSecure.post('/create-payment-intent',{ price,AvailableSeat })
       .then(res => {
         console.log(res.data.clientSecret)
         setClientSecret(res.data.clientSecret);
@@ -67,10 +67,19 @@ const CheckOutForm = ({ languageClass }) => {
     );
 
     if (confirmError) {
-      console.log(confirmError)
-    }
-    console.log(paymentIntent)
-  }
+      console.log(confirmError);
+    }  
+   else{
+     console.log(paymentIntent);
+     const transactionId ={transactionId: paymentIntent.id }
+     axiosSecure.post('/paymentClasses',{enrolledClasses,transactionId})
+     .then(res => console.log(res.data))
+     
+   }
+  };
+
+  
+  
   return (
     <> <form className="w-2/3 ml-4 mt-4" onSubmit={handleSubmit}>
       <CardElement

@@ -19,6 +19,7 @@ import Classes from "../pages/Classes/Classes";
 import MySelectedClasses from "../pages/Dashboard/Dashboard/Student/MySelectedClasses";
 import Instructors from "../pages/Instructors/Instructors";
 import Payment from "../pages/Dashboard/Dashboard/Payment/Payment";
+import MyEnrolledClasses from "../pages/Dashboard/Dashboard/Payment/MyEnrolledClasses/MyEnrolledClasses";
 
 
 export const router = createBrowserRouter([
@@ -75,13 +76,13 @@ export const router = createBrowserRouter([
       {
         path: 'feedback/:id',
         element: <FeedBack></FeedBack>,
-        loader: ({ params }) => fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
 
       },
       {
         path: 'showFeedback/:id',
         element: <ShowFeedback></ShowFeedback>,
-        loader: ({ params }) => fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
       }, {
         path: 'mySelectedClasses',
         element: <MySelectedClasses></MySelectedClasses>
@@ -89,7 +90,11 @@ export const router = createBrowserRouter([
       {
         path: 'payment/:id',
         element:<Payment></Payment>,
-        loader:({params}) => fetch(`https://assignment-12-server-one-sepia.vercel.app/selectedClass/${params.id}`)
+        loader:({params}) => fetch(`http://localhost:5000/selectedClass/${params.id}`)
+       },
+       {
+        path: 'enrolledClasses',
+        element:<MyEnrolledClasses></MyEnrolledClasses>
        }
     ]
   },

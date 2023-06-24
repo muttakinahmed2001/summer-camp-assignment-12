@@ -43,7 +43,7 @@ const {data: classesByStatus =[]}= useQuery(['approveClasses'],async () => {
               AvailableSeat
             };
         
-            fetch("https://assignment-12-server-one-sepia.vercel.app/selectedClasses", {
+            fetch("http://localhost:5000/selectedClasses", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

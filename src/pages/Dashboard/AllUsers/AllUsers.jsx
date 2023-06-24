@@ -19,7 +19,7 @@ const AllUsers = () => {
   const handleMakeAdmin = id => {
     const newAdminClicked = [...adminClicked, id]
     setAdminClicked(newAdminClicked)
-    fetch(` https://assignment-12-server-one-sepia.vercel.app/users/admin/${id}`, {
+    fetch(` http://localhost:5000/users/admin/${id}`, {
       method: 'PATCH'
     })
       .then(res => res.json())
@@ -41,7 +41,7 @@ const AllUsers = () => {
   const handleMakeInstructor = id => {
     const newInstructorClicked = [...instructorClicked, id]
     setInstructorClicked(newInstructorClicked)
-    fetch(` https://assignment-12-server-one-sepia.vercel.app/users/instructor/${id}`, {
+    fetch(` http://localhost:5000/users/instructor/${id}`, {
       method: 'PATCH'
     })
       .then(res => res.json())
