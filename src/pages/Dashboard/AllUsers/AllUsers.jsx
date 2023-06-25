@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -19,7 +20,7 @@ const AllUsers = () => {
   const handleMakeAdmin = id => {
     const newAdminClicked = [...adminClicked, id]
     setAdminClicked(newAdminClicked)
-    fetch(` http://localhost:5000/users/admin/${id}`, {
+    fetch(` https://assignment-12-server-one-sepia.vercel.app/users/admin/${id}`, {
       method: 'PATCH'
     })
       .then(res => res.json())
@@ -41,7 +42,7 @@ const AllUsers = () => {
   const handleMakeInstructor = id => {
     const newInstructorClicked = [...instructorClicked, id]
     setInstructorClicked(newInstructorClicked)
-    fetch(` http://localhost:5000/users/instructor/${id}`, {
+    fetch(` https://assignment-12-server-one-sepia.vercel.app/users/instructor/${id}`, {
       method: 'PATCH'
     })
       .then(res => res.json())
@@ -63,6 +64,11 @@ const AllUsers = () => {
 
   return (
     <div className="w-full">
+      <Helmet>
+        <title>
+          Mange Users | Language Class
+        </title>
+      </Helmet>
 
       <h1 className="text-2xl font-bold my-4">Total Users: {users.length}</h1>
       <div className="overflow-x-auto">

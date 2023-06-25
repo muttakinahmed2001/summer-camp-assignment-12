@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -12,7 +13,7 @@ const FeedBack = () => {
         const form = event.target;
         const feedback = form.feedback.value;
 
-        fetch(`http://localhost:5000/classes/feedback/${_id}`,{
+        fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/feedback/${_id}`,{
             method: 'PATCH',
             headers: {'content-type': 'application/json'},
              body: JSON.stringify({feedback})
@@ -33,7 +34,13 @@ const FeedBack = () => {
     }
          
     return (
-        <form onSubmit={handleFeedBack}>
+     <div className="mx-auto">
+        <Helmet>
+            <title>
+                FeedBack | Language Class
+            </title>
+        </Helmet>
+           <form onSubmit={handleFeedBack}>
             <div className="form-control">
                 <label className="label">
                     <span className="label-text text-xl">Feedback</span>
@@ -44,6 +51,7 @@ const FeedBack = () => {
             </div>
             <input className="mt-5 btn btn-warning" type="submit" value="Send Feedback" />
         </form>
+     </div>
     );
 };
 

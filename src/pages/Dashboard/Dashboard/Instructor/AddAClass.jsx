@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const AddAClass = () => {
@@ -13,7 +14,7 @@ const AddAClass = () => {
     const languageClass = { ClassName: data.className, ClassImage: data.image, instructorName: data.instructorName, instructorEmail: data.instructorEmail, price: parseFloat(data.price), AvailableSeat: parseFloat(data.seats) }
     console.log(data)
     console.log(languageClass)
-    fetch('http://localhost:5000/classes', {
+    fetch('https://assignment-12-server-one-sepia.vercel.app/classes', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -40,7 +41,13 @@ const AddAClass = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+  <div className="mx-auto mt-5">
+    <Helmet>
+      <title>
+        Add A Class | Language Class
+      </title>
+    </Helmet>
+      <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex">
 
         <div className="form-control w-full ">
@@ -111,6 +118,7 @@ const AddAClass = () => {
 
       <input className="btn btn-sm mt-4 text-center" type="submit" value="Add Class" />
     </form>
+  </div>
 
   );
 };

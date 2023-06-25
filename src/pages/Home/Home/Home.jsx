@@ -1,4 +1,5 @@
  
+import { Helmet } from "react-helmet-async";
 import Animation from "../Animation/Animation";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import Carousal from "../Slider/Carousal";
@@ -12,7 +13,11 @@ const Home = () => {
   
   return (
     <div className="mx-auto">
-      
+      <Helmet>
+        <title>
+          Home | Language Class
+        </title>
+      </Helmet>
 
       <div>
         <Carousal />

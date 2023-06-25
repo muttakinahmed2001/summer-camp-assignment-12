@@ -6,6 +6,7 @@ import {   useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+import { Helmet } from "react-helmet-async";
 
  
 const Classes = () => {
@@ -43,7 +44,7 @@ const {data: classesByStatus =[]}= useQuery(['approveClasses'],async () => {
               AvailableSeat
             };
         
-            fetch("http://localhost:5000/selectedClasses", {
+            fetch("https://assignment-12-server-one-sepia.vercel.app/selectedClasses", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -83,32 +84,39 @@ const {data: classesByStatus =[]}= useQuery(['approveClasses'],async () => {
         }
    
     return (
+     <>
+     <Helmet>
+      <title>
+        Classes | Language Class
+      </title>
+     </Helmet>
       
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
             
-             {classesByStatus.map( languageClass =>
-           
-           <div
-           key={languageClass._id}
-           className={`card w-96 bg-base-100 shadow-xl ${
-             languageClass.AvailableSeat === 0 ? 'bg-red-500' : ''
-           }`}
-         >
-  <figure className="px-10 pt-10">
-    <img src={languageClass.ClassImage} alt="Shoes" className="rounded-xl" />
-  </figure>
-  <div className="card-body items-center text-center">
-    <h2 className="card-title">{languageClass.ClassName}</h2>
-    <h2 className="text-xl font-bold">Instructor:   {languageClass.instructorName}</h2>
-    <p>Available seats: {languageClass.AvailableSeat}</p>
-    <p>Price: ${languageClass.price}</p>
-    <div className="card-actions">
-         <button disabled={isAdmin || isInstructor ||languageClass.AvailableSeat===0 ? true: false} onClick={()=>handleSelectButton(languageClass)} className="btn bg-[orange]">Select </button>  
-     
-    </div>
-  </div>
+            {classesByStatus.map( languageClass =>
+          
+          <div
+          key={languageClass._id}
+          className={`card w-96 bg-base-100 shadow-xl ${
+            languageClass.AvailableSeat === 0 ? 'bg-red-500' : ''
+          }`}
+        >
+ <figure className="px-10 pt-10">
+   <img src={languageClass.ClassImage} alt="Shoes" className="rounded-xl" />
+ </figure>
+ <div className="card-body items-center text-center">
+   <h2 className="card-title">{languageClass.ClassName}</h2>
+   <h2 className="text-xl font-bold">Instructor:   {languageClass.instructorName}</h2>
+   <p>Available seats: {languageClass.AvailableSeat}</p>
+   <p>Price: ${languageClass.price}</p>
+   <div className="card-actions">
+        <button disabled={isAdmin || isInstructor ||languageClass.AvailableSeat===0 ? true: false} onClick={()=>handleSelectButton(languageClass)} className="btn bg-[orange]">Select </button>  
+    
+   </div>
+ </div>
 </div>)}
-        </div>
+       </div>
+     </>
     );
 };
 

@@ -5,6 +5,7 @@ import {  FaUsers } from "react-icons/fa";
  import classIcon from '../../../assets/class.png'
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
+import { Helmet } from "react-helmet-async";
  
 const Dashboard = () => {
   
@@ -14,6 +15,13 @@ const Dashboard = () => {
     return (
      
        <>
+
+       <Helmet>
+
+        <title>
+          Dashboard | Language Class
+        </title>
+       </Helmet>
       
        <Navbar></Navbar>
        <div className="drawer lg:drawer-open ">

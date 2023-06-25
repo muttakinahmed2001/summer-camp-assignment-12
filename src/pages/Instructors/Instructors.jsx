@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 
 const Instructors = () => {
@@ -14,6 +15,12 @@ const Instructors = () => {
          
     return (
      <div className="mt-[100px] mb-[100px]">
+
+<Helmet>
+        <title>
+          Instructors | Language Class
+        </title>
+      </Helmet>
       <h1 className="text-center text-3xl">Our Instructors</h1>
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
            

@@ -24,3 +24,9 @@ Discover the Joy of Language Learning at our Summer Camp School Website! Immerse
 ## Live site link
 
 https://assignment-12-72344.web.app/
+
+## Admin information
+
+Admin Email: muttakin@gmail.com
+
+Admin Password: Muttakin@

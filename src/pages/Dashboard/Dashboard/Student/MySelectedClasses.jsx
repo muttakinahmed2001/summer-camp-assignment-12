@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const MySelectedClasses = () => {
@@ -45,6 +46,12 @@ const MySelectedClasses = () => {
   }
   return (
     <div>
+
+      <Helmet>
+        <title>
+          My Selected Classes | Language Class
+        </title>
+      </Helmet>
       <div className="overflow-x-auto">
         <table className="table  mt-100px">
           {/* head */}

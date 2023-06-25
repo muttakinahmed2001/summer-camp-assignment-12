@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const {signIn,googleSignIn}= useContext(AuthContext);
@@ -34,7 +35,7 @@ const Login = () => {
      { const user = result.user;
     console.log(user)
     const saveUser = { name: user.displayName, email: user.email }
-        fetch('` http://localhost:5000/users', {
+        fetch('` https://assignment-12-server-one-sepia.vercel.app/users', {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'
@@ -51,6 +52,12 @@ const Login = () => {
   }
    
   return (
+   <>
+   <Helmet>
+    <title>
+      Login | Language Class
+    </title>
+   </Helmet>
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-col">
         <div className="text-center lg:text-left">
@@ -101,6 +108,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+   </>
   );
 };
 

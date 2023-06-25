@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -22,6 +23,11 @@ const MyClasses = () => {
     })
     return (
         <>
+        <Helmet>
+            <title>
+                My Classes | Language Class
+            </title>
+        </Helmet>
        <h1 className="text-xl text-center my-4">Total enrolled students: {totalEnrolledStudents.totalEnrolledStudents}</h1>
 
         <div className="overflow-x-auto">

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../../../providers/AuthProvider";
 import useAxiosSecure from "../../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
  
 
@@ -16,6 +17,11 @@ const MyEnrolledClasses = () => {
   console.log(enrolledClasses)
 
     return (
+     <>
+
+     <Helmet> 
+      <title>My Enrolled Classes | Language Class</title>
+     </Helmet>
       <div className="overflow-x-auto">
       <table className="table">
         {/* head */}
@@ -61,6 +67,7 @@ const MyEnrolledClasses = () => {
         
       </table>
     </div>
+     </>
     );
 };
 

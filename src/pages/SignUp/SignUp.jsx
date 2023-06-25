@@ -6,6 +6,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
   const [error, setError] = useState();
@@ -34,7 +35,7 @@ const navigate = useNavigate();
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
             const saveUser = { name: data.name, email: data.email,image: data.photoURL }
-            fetch('http://localhost:5000/users', {
+            fetch('https://assignment-12-server-one-sepia.vercel.app/users', {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'
@@ -71,7 +72,7 @@ const navigate = useNavigate();
         const user = result.user;
         console.log(user)
         const saveUser = { name: user.displayName, email: user.email, image: user.photoURL  }
-        fetch('http://localhost:5000/users', {
+        fetch('https://assignment-12-server-one-sepia.vercel.app/users', {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'
@@ -88,6 +89,12 @@ const navigate = useNavigate();
   }
 
   return (
+  <>
+  <Helmet>
+    <title>
+      Sign Up | Language Class
+    </title>
+  </Helmet>
     <div className="hero min-h-screen bg-base-200 ">
       <div className="hero-content flex-col lg:flex-col">
         <div className="text-center lg:text-left">
@@ -177,6 +184,7 @@ const navigate = useNavigate();
         </div>
       </div>
     </div>
+  </>
 
   );
 };
