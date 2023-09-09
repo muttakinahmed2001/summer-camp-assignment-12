@@ -1,7 +1,4 @@
-import {
-  createBrowserRouter,
-
-} from "react-router-dom"
+import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Error from "../pages/Error/Error";
@@ -20,7 +17,7 @@ import MySelectedClasses from "../pages/Dashboard/Dashboard/Student/MySelectedCl
 import Instructors from "../pages/Instructors/Instructors";
 import Payment from "../pages/Dashboard/Dashboard/Payment/Payment";
 import MyEnrolledClasses from "../pages/Dashboard/Dashboard/Payment/MyEnrolledClasses/MyEnrolledClasses";
-
+import PaymentHistory from "../pages/Dashboard/Dashboard/Payment/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -28,79 +25,92 @@ export const router = createBrowserRouter([
     element: <Main></Main>,
     children: [
       {
-        path: '/',
-        element: <Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-        path: 'allInstructors',
-        element: <Instructors></Instructors>
+        path: "allInstructors",
+        element: <Instructors></Instructors>,
       },
       {
-        path: 'approveClasses',
-        element: <Classes></Classes>
-
+        path: "approveClasses",
+        element: <Classes></Classes>,
       },
       {
-        path: 'login',
-        element: <Login></Login>
+        path: "login",
+        element: <Login></Login>,
       },
       {
-        path: 'signUp',
-        element: <SignUp></SignUp>
-      }
-
-    ]
+        path: "signUp",
+        element: <SignUp></SignUp>,
+      },
+    ],
   },
   {
-    path: 'dashboard',
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
-
       {
-        path: 'users',
-        element: <AllUsers></AllUsers>
+        path: "users",
+        element: <AllUsers></AllUsers>,
       },
 
       {
-        path: 'addAClass',
-        element: <AddAClass></AddAClass>
+        path: "addAClass",
+        element: <AddAClass></AddAClass>,
       },
       {
-        path: 'myClasses',
-        element: <MyClasses></MyClasses>
+        path: "myClasses",
+        element: <MyClasses></MyClasses>,
       },
       {
-        path: 'mangeClasses',
-        element: <AllClasses></AllClasses>
+        path: "mangeClasses",
+        element: <AllClasses></AllClasses>,
       },
       {
-        path: 'feedback/:id',
+        path: "feedback/:id",
         element: <FeedBack></FeedBack>,
-        loader: ({ params }) => fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
-
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`
+          ),
       },
       {
-        path: 'showFeedback/:id',
+        path: "showFeedback/:id",
         element: <ShowFeedback></ShowFeedback>,
-        loader: ({ params }) => fetch(`https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`)
-      }, {
-        path: 'mySelectedClasses',
-        element: <MySelectedClasses></MySelectedClasses>
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-12-server-one-sepia.vercel.app/classes/${params.id}`
+          ),
       },
       {
-        path: 'payment/:id',
-        element:<Payment></Payment>,
-        loader:({params}) => fetch(`https://assignment-12-server-one-sepia.vercel.app/selectedClass/${params.id}`)
-       },
-       {
-        path: 'enrolledClasses',
-        element:<MyEnrolledClasses></MyEnrolledClasses>
-       }
-    ]
+        path: "mySelectedClasses",
+        element: <MySelectedClasses></MySelectedClasses>,
+      },
+      {
+        path: "payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-12-server-one-sepia.vercel.app/selectedClass/${params.id}`
+          ),
+      },
+      {
+        path: "enrolledClasses",
+        element: <MyEnrolledClasses></MyEnrolledClasses>,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+    ],
   },
   {
-    path: '*',
-    element: <Error></Error>
-  }
+    path: "*",
+    element: <Error></Error>,
+  },
 ]);
-
