@@ -94,7 +94,7 @@ const Classes = () => {
         <title>Classes | Language Class</title>
       </Helmet>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 px-5">
         {classesByStatus.map((languageClass) => (
           <div
             key={languageClass._id}

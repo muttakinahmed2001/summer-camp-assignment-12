@@ -12,7 +12,7 @@ const Instructors = () => {
   console.log(instructors);
 
   return (
-    <div className="mt-[100px] mb-[100px]">
+    <div className="mt-[100px] mb-[100px] px-5">
       <Helmet>
         <title>Instructors | Language Class</title>
       </Helmet>

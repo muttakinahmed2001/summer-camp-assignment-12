@@ -12,19 +12,19 @@ const Carousal = () => {
   return (
     <Carousel>
       <div>
-        <img src={img1} />
+        <img className="h-100" src={img1} />
       </div>
       <div>
-        <img src={img2} />
+        <img className="h-100" src={img2} />
       </div>
       <div>
-        <img src={img3} />
+        <img className="h-100" src={img3} />
       </div>
       <div>
-        <img src={img4} />
+        <img className="h-100" src={img4} />
       </div>
       <div>
-        <img src={img5} />
+        <img className="h-100" src={img5} />
       </div>
     </Carousel>
   );
