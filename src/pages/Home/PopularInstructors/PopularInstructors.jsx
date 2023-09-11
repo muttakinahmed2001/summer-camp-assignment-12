@@ -11,7 +11,7 @@ const PopularInstructors = () => {
   console.log(instructors);
 
   return (
-    <div className="mt-[100px] mb-[100px]   mx-auto">
+    <div className="mt-[100px] mb-[100px] px-4  mx-auto">
       <h1 className="text-center text-3xl mb-10">Popular Instructors</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {instructors.map((instructor) => (
