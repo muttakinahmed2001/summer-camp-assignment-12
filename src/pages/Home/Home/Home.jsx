@@ -10,7 +10,7 @@ const Home = () => {
   const language = "english";
 
   return (
-    <div className="mx-auto">
+    <div>
       <Helmet>
         <title>Home | Language Class</title>
       </Helmet>

@@ -91,7 +91,7 @@ const CheckOutForm = ({ languageClass }) => {
   return (
     <>
       {" "}
-      <form className="w-2/3 ml-4 mt-4" onSubmit={handleSubmit}>
+      <form className="w-full ml-4 mt-4 px-2" onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {

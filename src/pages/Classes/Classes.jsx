@@ -94,18 +94,18 @@ const Classes = () => {
         <title>Classes | Language Class</title>
       </Helmet>
 
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 px-5">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4  mx-auto">
         {classesByStatus.map((languageClass) => (
           <div
             key={languageClass._id}
-            className={`card bg-base-100 shadow-xl ${
+            className={`card w-full bg-base-100 shadow-xl ${
               languageClass.AvailableSeat === 0 ? "bg-red-500" : ""
             }`}>
-            <figure className="px-10 pt-10  ">
+            <figure className="px-10 pt-10 ">
               <img
                 src={languageClass.ClassImage}
                 alt="Shoes"
-                className="rounded-xl h-[200px]"
+                className="rounded-xl w-full h-[200px]"
               />
             </figure>
             <div className="card-body items-center text-center">
