@@ -22,18 +22,16 @@ const Instructors = () => {
           <div
             key={instructor._id}
             className="card w-full bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10 ">
+            <figure>
               <img
                 src={instructor.image}
                 alt="Shoes"
                 className="rounded-xl w-full h-[200px] "
               />
             </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">Instructor Name: {instructor.name}</h2>
-              <p className="font-semibold">
-                Instructor Email: {instructor.email}
-              </p>
+            <div className="card-body ">
+              <h2 className="card-title"> {instructor.name}</h2>
+              <p className="font-semibold">{instructor.email}</p>
             </div>
           </div>
         ))}

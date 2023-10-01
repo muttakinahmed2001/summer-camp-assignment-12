@@ -3,6 +3,7 @@ import Animation from "../Animation/Animation";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import Carousal from "../Slider/Carousal";
 import PopularClasses from "../PopularClasses/PopularClasses";
+import About from "../About/About";
 
 const Home = () => {
   const arabic = "arabic";
@@ -17,6 +18,7 @@ const Home = () => {
 
       <div>
         <Carousal />
+
         <PopularClasses></PopularClasses>
         <PopularInstructors />
 

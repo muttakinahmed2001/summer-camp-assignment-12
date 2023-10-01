@@ -71,7 +71,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-2">
             <img width={"50px"} src={logo} alt="" />
-            <h1 className="text-[24px] text-[#0B1105] font-bold">
+            <h1 className="sm:text-[24px] text-[#0B1105] font-bold">
               Learn Language
             </h1>
           </div>

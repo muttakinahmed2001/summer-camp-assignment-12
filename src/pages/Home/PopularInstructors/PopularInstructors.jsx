@@ -13,23 +13,23 @@ const PopularInstructors = () => {
   return (
     <div className="mt-[100px] mb-[100px] px-4  mx-auto">
       <h1 className="text-center text-3xl mb-10">Popular Instructors</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-10 container max-w-screen-2xl">
         {instructors.map((instructor) => (
           <div
             key={instructor._id}
             className="card w-full  bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10    ">
+            <figure>
               <img
                 src={instructor.image}
                 alt="Shoes"
-                className="rounded-xl w-full h-[200px] "
+                className="rounded-xl w-full h-[300px] object-cover "
               />
             </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">Instructor Name: {instructor.name}</h2>
-              <p className="font-semibold">
-                Instructor Email: {instructor.email}
-              </p>
+            <div className="card-body py-4 gap-0">
+              <h2 className="card-title"> {instructor.name}</h2>
+              <small className="font-semibold text-blue-500">
+                {instructor.email}
+              </small>
             </div>
           </div>
         ))}
