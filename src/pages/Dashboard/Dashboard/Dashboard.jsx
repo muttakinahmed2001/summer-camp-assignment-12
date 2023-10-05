@@ -20,15 +20,16 @@ const Dashboard = () => {
       <Navbar></Navbar>
       <div className="drawer lg:drawer-open  w-3/6">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col   ">
-          <Outlet></Outlet>
-
+        <div className="drawer-content flex     ">
           {/* Page content here */}
+
           <label
             htmlFor="my-drawer-2"
-            className="  w-1/12 py-40 text-center bg-stone-300   border-slate-400 drawer-button lg:hidden  ">
+            className="   text-xl font-bold  py-auto px-3 flex flex-col justify-center text-center bg-stone-300   border-slate-400 drawer-button lg:hidden  ">
             &lt;
           </label>
+
+          <Outlet></Outlet>
         </div>
         <div className="drawer-side ">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
