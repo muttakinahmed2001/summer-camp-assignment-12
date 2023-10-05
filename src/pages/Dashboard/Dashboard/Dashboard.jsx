@@ -18,7 +18,7 @@ const Dashboard = () => {
       </Helmet>
 
       <Navbar></Navbar>
-      <div className="drawer lg:drawer-open ">
+      <div className="drawer lg:drawer-open  w-3/6">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col   ">
           <Outlet></Outlet>
@@ -26,8 +26,8 @@ const Dashboard = () => {
           {/* Page content here */}
           <label
             htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden  ">
-            Open drawer
+            className="  w-1/12 py-40 text-center bg-stone-300   border-slate-400 drawer-button lg:hidden  ">
+            &lt;
           </label>
         </div>
         <div className="drawer-side ">
