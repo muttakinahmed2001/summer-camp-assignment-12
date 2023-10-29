@@ -75,7 +75,7 @@ const AllClasses = () => {
         <title>Mange Classes | Language Class</title>
       </Helmet>
       <div className="overflow-x-auto w-full">
-        <table className="table table-compact w-full">
+        <table className="table table-compact table-responsive min-w-full">
           {/* head */}
           <thead>
             <tr>
@@ -97,7 +97,7 @@ const AllClasses = () => {
                 <td>
                   <div className="flex items-center space-x-3">
                     <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
+                      <div className="mask mask-squircle  ">
                         <img src={languageClass.ClassImage} />
                       </div>
                     </div>

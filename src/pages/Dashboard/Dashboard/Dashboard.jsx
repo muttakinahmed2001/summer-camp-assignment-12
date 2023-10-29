@@ -25,7 +25,7 @@ const Dashboard = () => {
 
           <label
             htmlFor="my-drawer-2"
-            className="   text-xl font-bold  py-auto px-3 flex flex-col justify-center text-center bg-stone-300   border-slate-400 drawer-button lg:hidden  ">
+            className="   text-xl font-bold  py-auto px-5 flex flex-col justify-center text-center bg-stone-300   border-slate-400 drawer-button lg:hidden  ">
             &lt;
           </label>
 
