@@ -3,7 +3,7 @@ import logo from "../../../assets/logo.png";
 const Footer = () => {
   return (
     <>
-      <footer className="footer p-10 bg-[lightblue] text-base-content">
+      <footer className="footer p-10 bg-[lightblue] text-black text-base-content">
         <div className="flex items-center">
           <img className="w-[50px]" src={logo} alt="" />
           <h1 className="text-[24px] font-bold">Learn Language</h1>

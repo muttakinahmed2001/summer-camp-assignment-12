@@ -39,7 +39,7 @@ const Animation = ({ language }) => {
 
   return (
     <motion.div
-      className="px-10 text-center"
+      className="px-10 text-center text-black"
       key={language}
       initial="initial"
       animate="animate"

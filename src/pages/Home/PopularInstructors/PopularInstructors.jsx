@@ -12,7 +12,9 @@ const PopularInstructors = () => {
 
   return (
     <div className="mt-[100px] mb-[100px] px-4  mx-auto">
-      <h1 className="text-center text-3xl mb-10">Popular Instructors</h1>
+      <h1 className="text-center text-black text-3xl mb-10">
+        Popular Instructors
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-10 container max-w-screen-2xl">
         {instructors.map((instructor) => (
           <div

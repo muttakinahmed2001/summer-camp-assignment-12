@@ -14,7 +14,9 @@ const PopularClasses = () => {
   console.log(enrolledClasses);
   return (
     <div className="py-10  mx-auto">
-      <h1 className="text-center text-3xl font-bold my-5">Popular Classes</h1>
+      <h1 className="text-center text-black text-3xl font-bold my-5">
+        Popular Classes
+      </h1>
       <div className="mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 px-10 container max-w-screen-2xl">
         {enrolledClasses.map((languageClass) => (
           <div
